@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 13, 2011 at 03:22 PM
+-- Generation Time: Sep 14, 2011 at 02:32 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -35,15 +35,15 @@ CREATE TABLE IF NOT EXISTS `contest` (
   `contestants` varchar(1000) NOT NULL,
   `postContest` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `contest`
 --
 
 INSERT INTO `contest` (`id`, `mid`, `name`, `criterias`, `contestants`, `postContest`) VALUES
-(2, 1, 'Variety Show - Elimination', 'a:3:{s:12:"Choreography";s:2:"30";s:6:"Timing";s:2:"30";s:9:"Execution";s:2:"40";}', 'a:5:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"6";}', 'a:2:{s:2:"id";s:1:"3";s:5:"limit";s:1:"5";}'),
-(3, 1, 'Variety Show - Finals', 'a:5:{s:7:"Mastery";s:2:"20";s:5:"Style";s:2:"20";s:11:"Originality";s:2:"30";s:7:"Costume";s:2:"20";s:15:"Audience Impact";s:2:"10";}', 'a:5:{i:0;s:1:"6";i:1;s:1:"5";i:2;s:1:"4";i:3;s:1:"2";i:4;s:1:"1";}', '0');
+(2, 1, 'Variety Show - Elimination', 'a:3:{s:12:"Choreography";s:2:"30";s:6:"Timing";s:2:"30";s:9:"Execution";s:2:"40";}', 'a:5:{i:0;s:1:"1";i:1;s:1:"2";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"6";}', 'a:2:{s:2:"id";s:1:"3";s:5:"limit";s:1:"3";}'),
+(3, 1, 'Variety Show - Finals', 'a:5:{s:7:"Mastery";s:2:"20";s:5:"Style";s:2:"20";s:11:"Originality";s:2:"30";s:7:"Costume";s:2:"20";s:15:"Audience Impact";s:2:"10";}', 'N;', 'a:2:{s:2:"id";s:0:"";s:5:"limit";s:0:"";}');
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `contestants` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `contestants`
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `criterias` (
   `name` varchar(100) NOT NULL,
   `percentage` int(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `criterias`
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `managers` (
 --
 
 INSERT INTO `managers` (`id`, `username`, `password`) VALUES
-(1, 'admin', '123123');
+(1, 'alex', '123123');
 
 -- --------------------------------------------------------
 

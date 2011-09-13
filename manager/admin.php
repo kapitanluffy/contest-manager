@@ -26,6 +26,13 @@ include 'criteria_.php';
 			font-size: 1.5em;
 			font-weight: bold;
 		}
+		.wiki a {
+			color: #55aaff;
+		}
+		#ads {
+			text-align: right;
+			font-size: .9em;
+		}
 	</style>
   </head>
   <body>

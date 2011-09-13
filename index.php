@@ -10,6 +10,7 @@ include 'header.php';
 	</style>
   </head>
   <body>
+	Choos a contest
 	<?php
 		echo "<ul>";
 		foreach($contests as $contest){
