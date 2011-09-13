@@ -1,0 +1,23 @@
+<title></title>
+<link href="assets/reset.css" rel="stylesheet" type="text/css">
+<link href="assets/global.css" rel="stylesheet" type="text/css">
+<!--[if IE]>
+	<link href="assets/ie.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<script type="text/javascript" src="assets/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.blur_input').focus(function(){
+		if( $(this).val() == '<?php echo $name_value; ?>'){ 
+			$(this).val('');
+		}
+		$(this).toggleClass('focus_input');
+	});
+	$('.blur_input').blur(function(){
+		if( $(this).val() == ''){
+			$(this).val('<?php echo $name_value; ?>');
+		}
+		$(this).toggleClass('focus_input');
+	});
+});
+</script>

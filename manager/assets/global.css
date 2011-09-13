@@ -1,0 +1,58 @@
+#wrap {
+	width: 990px;
+	margin: auto;
+}
+.short {
+	width: 27px;
+}
+.blur_input {
+	color: gray;
+	font-style: italic;
+}
+.focus_input {
+	color: black;
+	font-style: normal;
+}
+#menu {
+	margin-top: 10px;
+}
+#menu_list {
+	width: 785px;
+}
+#menu_list li {
+	display: inline;
+	margin-right: 10px;
+}
+.top_bar {
+	display: inline-block;
+	height: 25px;
+}
+.top_bar.right {
+	width: 200px;
+	text-align: right;
+}
+table {
+	margin: 5px 0px;
+}
+table td {
+	padding: 5px;
+	border: solid 1px black;
+}
+table tfoot {
+	text-align: center;
+	font-size: 1.2em;
+}
+#form {
+	padding: 10px; margin: 5px 0px;
+	border: dashed 1px gray;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.spread {
+	width: 100%;
+}
