@@ -38,7 +38,8 @@ if($contestValue['id'] == $post_id){ $selected = "selected=selected"; }
 echo "<option value='$contestValue[id]' $selected>$contestValue[name]</option>";
 }
 echo "</select>";
-echo " Top ".$contest->cid(null,'short')->text('top', post('top',$top_value));
+echo " Top ".$form['top'];
+echo $form['judges']." Judges";
 echo "<div id='select_criterias'><table>";
 $selected = false;
 foreach($c1 as $index => $c){

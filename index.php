@@ -1,22 +1,22 @@
 <?php
 include 'header.php';
+if(!$loggedin){header('Location: judge.php');}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
-  <head>
-    <title></title>
-	<style>
-	.error { color: red; }
-	</style>
-  </head>
-  <body>
-	Choos a contest
-	<?php
-		echo "<ul>";
-		foreach($contests as $contest){
-			echo "<li>$contest[name] <a href='contest.php?".parse_get("id=$contest[id]")."'>&raquo;</a></li>";
-		}
-		echo "</ul>";
-	?>
-  </body>
+<head>
+<title></title>
+<style>
+@import url(assets/style.css);
+</style>
+</head>
+<body>
+<?php include 'navi.php'; ?>
+<ul id='contestsList'>
+<?php foreach($contests as $contest){
+echo "<li><a href='contest.php?id=$contest[id]'>".ucwords($contest['name'])."</a></li>";
+} ?>
+</ul>
+<div id='msg'><?php echo $msg; ?></div>
+</body>
 </html>

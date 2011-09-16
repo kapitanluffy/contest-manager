@@ -1,19 +1,19 @@
 <?php 
 include 'header.php';
+if(!$loggedin){header('Location: judge.php');}
+if(empty($_POST['nextContest'])){ header('Location: index.php'); }
 
-if(!empty($_POST['nextContest'])){
 	$postContest = unserialize(post('postContest'));
-	$totalScores = $db->select('scores',"WHERE contestId='".post('preContest')."' ORDER BY total desc","DISTINCT total");
-	$totalScores = $db->result_array(null,$totalScores);
-	$no = 1;
-	foreach($totalScores as $index => $score){
-		$toppers = $db->select('scores',"WHERE contestId='".post('preContest')."' AND total='$score[total]' ");
-		if($no <= $postContest['limit']){
-			$top[$no] = $db->result_array('id',$toppers);
-			$no++;
-		} else {
-			break;
-		}
+	$limit = $postContest['limit'];
+	$supahquery = "select DISTINCT contestantId, sum(total) as total FROM (SELECT DISTINCT contestantId, total FROM scores WHERE contestId=".post('preContest').") AS MYTABLE group by contestantId order by total desc";
+	$totalScoresRes = $db->query($supahquery);
+	$totalScores = $db->result_array('contestantId',$totalScoresRes);
+	$no = 1; $oldScore = 0;
+	foreach($totalScores as $id => $score){
+		if($no > $limit){	break;}
+		if($oldScore != $score['total']){ $no+=1; }
+		$top[$no][$id] = $score;
+		$oldScore = $score['total'];
 	}
 	
 	$contestantId = array();
@@ -30,7 +30,5 @@ if(!empty($_POST['nextContest'])){
 		$db->update('contest',$cols,"where id='".$postContest['id']."'");
 		header("Location: contest.php?id=$postContest[id]");
 	}
-	
-}
 
 ?>

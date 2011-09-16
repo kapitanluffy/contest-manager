@@ -1,0 +1,27 @@
+body {
+	padding: 10px 100px;
+	font-family: arial, calibri;
+}
+#msg {
+	outline: dashed green 1px;
+}
+#contestsList {
+	list-style: none;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+#contestsList a:hover {
+	font-weight: bold;
+}
+#task {
+	margin-top: 15px;
+}
+#task a {
+	margin-right: 15px;
+}
+#task a:hover {
+	text-decoration: underline;
+}

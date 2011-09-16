@@ -4,6 +4,7 @@ $id_value = '';
 $name_value = 'Contest Name';
 $num_value = '';
 $top_value = 0;
+$judge_value = 1;
 $post_id = '';
 $do_value = 'add';
 $input_class = 'blur_input';
@@ -50,7 +51,8 @@ if(isset($_POST['do']) || isset($_GET['do'])){
 			'mid'=>$_SESSION['id'],
 			'criterias'=>addslashes(serialize($criterias)),
 			'contestants'=>addslashes(serialize($contestantNames)),
-			'postContest'=>addslashes(serialize($postContest))
+			'postContest'=>addslashes(serialize($postContest)),
+			'numberOfJudges'=>post('numberOfJudges')
 		);
 		$name_exist = $db->select('contest',"where name='$cols[name]'");
 		if(@array_sum($criterias) != 100){
@@ -73,7 +75,8 @@ if(isset($_POST['do']) || isset($_GET['do'])){
 			'mid'=>$_SESSION['id'],
 			'criterias'=>addslashes(serialize($criterias)),
 			'contestants'=>addslashes(serialize($contestantNames)),
-			'postContest'=>addslashes(serialize($postContest))
+			'postContest'=>addslashes(serialize($postContest)),
+			'numberOfJudges'=>post('numberOfJudges')
 		);
 		if(array_sum($criterias) != 100){
 			header("Location: contest.php?do=edit&id=$_GET[id]&msg=6");
@@ -91,6 +94,7 @@ if(isset($_POST['do']) || isset($_GET['do'])){
 		$top_value = @unserialize($s[0]['postContest']);
 		$post_id = $top_value['id'];
 		$top_value = $top_value['limit'];
+		$judge_value = $s[0]['numberOfJudges'];
 		$contestants_selected = unserialize($s[0]['contestants']);
 		$do_value = 'edit';
 		$input_class = 'focus_input';
@@ -106,6 +110,8 @@ $contest = new form('contest','post');
 $form['start'] = $contest->start();
 $form['name'] = $contest->cid(null,"$input_class")->text('name', post('name',$name_value));
 $form['id'] = $contest->hidden('id', post('blah',$id_value));
+$form['top'] = $contest->cid(null,'short')->text('top', post('top',$top_value));
+$form['judges'] = $contest->cid(null,'short')->text('numberOfJudges', post('numberOfJudges',$judge_value));
 $form['go'] = $contest->submit('do',post('blah',$do_value));
 $form['stop'] = $contest->stop();
 ?>

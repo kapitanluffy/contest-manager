@@ -5,7 +5,7 @@ include '../crowd/form.php';
 include '../crowd/page.php';
 include '../crowd/debug.php';
 include '../crowd/functions.php';
-$db = new mysql('scoring_db','boom')or die();
+$db = new mysql('scoring_db','')or die();
 
 $error = '';
 $msg = '';
